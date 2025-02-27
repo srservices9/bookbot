@@ -1,5 +1,10 @@
+import sys
+
 def main():
-    with open ("books/frankenstein.txt") as f:
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    with open (sys.argv[1]) as f:
         file_contents = f.read()
     word_total = word_count(file_contents)
     char_dict = char_count(file_contents)
